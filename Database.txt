@@ -1,0 +1,5 @@
+Intrebare test: Raspunsurile se vor scrie de mana. Daca ai inteles, raspunde "Da";Da
+Ce animal face miau? Pisica, Cainele, sau Melcul?;Pisica
+Care este cel mai mare animal? Elefantul, Balena, sau Vaca?;Balena
+Care animal este cel mai bun prieten al omului? Melcul, Cainele, sau Lupul;Cainele
+Ce animal iti da lapte? Vaca, Oaia, sau Magarul?;Vaca
