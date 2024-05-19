@@ -40,6 +40,12 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.btnCautaSubmit = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txtBoxIntrebare = new System.Windows.Forms.TextBox();
+            this.txtBoxRaspuns = new System.Windows.Forms.TextBox();
+            this.lblIntrebare2 = new System.Windows.Forms.Label();
+            this.lblRaspuns2 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnAdaugaIntrebare = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,6 +69,7 @@
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "Adauga Intrebare";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnCauta
             // 
@@ -160,12 +167,79 @@
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
+            // txtBoxIntrebare
+            // 
+            this.txtBoxIntrebare.Location = new System.Drawing.Point(319, 124);
+            this.txtBoxIntrebare.Name = "txtBoxIntrebare";
+            this.txtBoxIntrebare.Size = new System.Drawing.Size(157, 20);
+            this.txtBoxIntrebare.TabIndex = 11;
+            this.txtBoxIntrebare.Visible = false;
+            // 
+            // txtBoxRaspuns
+            // 
+            this.txtBoxRaspuns.Location = new System.Drawing.Point(319, 161);
+            this.txtBoxRaspuns.Name = "txtBoxRaspuns";
+            this.txtBoxRaspuns.Size = new System.Drawing.Size(157, 20);
+            this.txtBoxRaspuns.TabIndex = 12;
+            this.txtBoxRaspuns.Visible = false;
+            // 
+            // lblIntrebare2
+            // 
+            this.lblIntrebare2.AutoSize = true;
+            this.lblIntrebare2.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIntrebare2.Location = new System.Drawing.Point(223, 124);
+            this.lblIntrebare2.Name = "lblIntrebare2";
+            this.lblIntrebare2.Size = new System.Drawing.Size(72, 18);
+            this.lblIntrebare2.TabIndex = 13;
+            this.lblIntrebare2.Text = "Intrebare:";
+            this.lblIntrebare2.Visible = false;
+            // 
+            // lblRaspuns2
+            // 
+            this.lblRaspuns2.AutoSize = true;
+            this.lblRaspuns2.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRaspuns2.Location = new System.Drawing.Point(223, 161);
+            this.lblRaspuns2.Name = "lblRaspuns2";
+            this.lblRaspuns2.Size = new System.Drawing.Size(60, 18);
+            this.lblRaspuns2.TabIndex = 14;
+            this.lblRaspuns2.Text = "Raspuns:";
+            this.lblRaspuns2.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(222, 85);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(391, 23);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "Introduceti Intrebarea pe care doriti sa o adaugati.";
+            this.label2.Visible = false;
+            // 
+            // btnAdaugaIntrebare
+            // 
+            this.btnAdaugaIntrebare.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdaugaIntrebare.Location = new System.Drawing.Point(301, 305);
+            this.btnAdaugaIntrebare.Name = "btnAdaugaIntrebare";
+            this.btnAdaugaIntrebare.Size = new System.Drawing.Size(194, 75);
+            this.btnAdaugaIntrebare.TabIndex = 16;
+            this.btnAdaugaIntrebare.Text = "Adauga Intrebare";
+            this.btnAdaugaIntrebare.UseVisualStyleBackColor = true;
+            this.btnAdaugaIntrebare.Visible = false;
+            this.btnAdaugaIntrebare.Click += new System.EventHandler(this.btnAdaugaIntrebare_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnAdaugaIntrebare);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblRaspuns2);
+            this.Controls.Add(this.lblIntrebare2);
+            this.Controls.Add(this.txtBoxRaspuns);
+            this.Controls.Add(this.txtBoxIntrebare);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnCautaSubmit);
             this.Controls.Add(this.textBox2);
@@ -199,6 +273,12 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button btnCautaSubmit;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox txtBoxIntrebare;
+        private System.Windows.Forms.TextBox txtBoxRaspuns;
+        private System.Windows.Forms.Label lblIntrebare2;
+        private System.Windows.Forms.Label lblRaspuns2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnAdaugaIntrebare;
     }
 }
 

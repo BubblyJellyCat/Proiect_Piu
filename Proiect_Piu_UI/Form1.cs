@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,12 +24,13 @@ namespace Proiect_Piu_UI
         public Form1()
         {
             InitializeComponent();
-            quizDate = new Date("D:\\code shit\\New folder\\Database.txt");
-            currentQuestion = quizDate.GetNextQuestion();
+            
         }
 
         private void btnStart_Click(object sender, EventArgs e)
         {
+            quizDate = new Date("D:\\code shit\\New folder\\Database.txt");
+            currentQuestion = quizDate.GetNextQuestion();
             btnStart.Hide();
             btnCauta.Hide();
             btnAdd.Hide();
@@ -46,6 +48,7 @@ namespace Proiect_Piu_UI
                 {
                     score++;  
                 }
+                textBox1.Clear();
                 currentQuestion = quizDate.GetNextQuestion();
                 currIntreb++;
                 DisplayQuestion();
@@ -76,6 +79,12 @@ namespace Proiect_Piu_UI
         {
             lblIntrebare.Hide();
             btnMainMenu.Hide();
+            lblIntrebare2.Hide();
+            lblRaspuns2.Hide();
+            btnAdaugaIntrebare.Hide();
+            txtBoxIntrebare.Hide();
+            txtBoxRaspuns.Hide();
+            label2.Hide();
 
             currIntreb = 0;
             score = 0;
@@ -104,6 +113,8 @@ namespace Proiect_Piu_UI
 
         private void btnCautaSubmit_Click(object sender, EventArgs e)
         {
+            quizDate = new Date("D:\\code shit\\New folder\\Database.txt");
+            currentQuestion = quizDate.GetNextQuestion();
             int cautaIndex = Convert.ToInt32(textBox2.Text)-1;
             
             for (int i = 0; i < cautaIndex; i++)
@@ -117,6 +128,52 @@ namespace Proiect_Piu_UI
             {
                 currentQuestion = quizDate.GetNextQuestion();
             }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            btnStart.Hide();
+            btnCauta.Hide();
+            btnAdd.Hide();
+            pictureBox1.Hide();
+
+            btnMainMenu.Show();
+            btnAdaugaIntrebare.Show();
+            txtBoxIntrebare.Show();
+            txtBoxRaspuns.Show();
+            lblIntrebare2.Show();
+            lblRaspuns2.Show();
+            label2.Show();
+        }
+
+        private void btnAdaugaIntrebare_Click(object sender, EventArgs e)
+        {
+            string filePath = "D:\\code shit\\New folder\\Database.txt";
+            using (StreamWriter sw = File.AppendText(filePath))
+            {
+                sw.WriteLine(txtBoxIntrebare.Text + ";" + txtBoxRaspuns.Text);
+                Console.WriteLine("Question added successfully!");
+            }
+
+            lblIntrebare.Hide();
+            btnMainMenu.Hide();
+            lblIntrebare2.Hide();
+            lblRaspuns2.Hide();
+            btnAdaugaIntrebare.Hide();
+            txtBoxIntrebare.Hide();
+            txtBoxRaspuns.Hide();
+            label2.Hide();
+
+            currIntreb = 0;
+            score = 0;
+            btnStart.Show();
+            btnCauta.Show();
+            btnAdd.Show();
+            pictureBox1.Show();
+
+            btnCautaSubmit.Hide();
+            label1.Hide();
+            textBox2.Hide();
         }
     }
 }
