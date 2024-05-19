@@ -1,11 +1,20 @@
 ﻿using Clase;
 using System;
 using System.IO;
+using System.Runtime.InteropServices;
 
 namespace Proiect_Piu_Console
 {
     class Program
     {
+        [Flags]
+        public enum RaspMultiple
+        {
+            Pisica = 1,
+            Cainele = 2,
+        };
+
+        public const RaspMultiple AnimaleCompanie = RaspMultiple.Pisica & RaspMultiple.Cainele;
         static void Main(string[] args)
         {
             Date quizDate = new Date("D:\\code shit\\New folder\\Database.txt");
@@ -13,11 +22,12 @@ namespace Proiect_Piu_Console
             bool quit = false;
             while (!quit)
             {
-                Console.Clear(); 
+                Console.Clear();
                 Console.WriteLine("Select an option:");
                 Console.WriteLine("S. Incepe Joc");
                 Console.WriteLine("A. Adauga Intrebare");
                 Console.WriteLine("C. Cautare Intrebare");
+                Console.WriteLine("F. Intrebare cu mai multe raspunsuri");
                 Console.WriteLine("X. Exit");
 
                 Console.Write("Alegerea dumneavoastra: ");
@@ -33,6 +43,9 @@ namespace Proiect_Piu_Console
                         break;
                     case "C":
                         SearchQuestion();
+                        break;
+                    case "F":
+                        Intreb2Rasp();
                         break;
                     case "X":
                         quit = true;
@@ -72,7 +85,7 @@ namespace Proiect_Piu_Console
                 Console.ReadKey();
             }
 
-            Console.WriteLine("Felicitari! Scorul tau final este: " + score + "!") ;
+            Console.WriteLine("Felicitari! Scorul tau final este: " + score + "!");
             Console.ReadKey();
         }
         static void AdaugaIntrebare()
@@ -123,5 +136,55 @@ namespace Proiect_Piu_Console
             Console.ReadKey();
         }
 
+        static void Intreb2Rasp()
+        {
+            Repeta:
+            Console.Clear();
+            Console.WriteLine("Care dintre urmatoarele animale sunt animale de companie?");
+            Console.WriteLine("1. Pisica ");
+            Console.WriteLine("2. Melcul ");
+            Console.WriteLine("3. Lupul ");
+            Console.WriteLine("4. Cainele ");
+            Console.WriteLine("\nScrieti raspunsurile cu spatiu intre ele si cu litere mari. (ex. Vaca Liliacul)");
+
+            string raspuns2 = Console.ReadLine();
+            string[] raspunsuri2 = raspuns2.Split(' ');
+            string[] testing = new string[raspunsuri2.Length];
+
+            if (testing.Length == 2)
+            {
+                for (int i = 0; i < raspunsuri2.Length; i++)
+                {
+                    if (Enum.IsDefined(typeof(RaspMultiple), raspunsuri2[i]))
+                    {
+                        testing[i] = "a";
+                    }
+                    else
+                    {
+                        testing[i] = "b";
+                    }
+                }
+
+                if (testing[0] == "a" && testing[1] == "a")
+                {
+                    Console.WriteLine("Raspunsurile sunt corecte!");
+                }
+                else { Console.WriteLine("Raspunsurile sunt incorecte."); }
+            }
+            else
+            {
+                Console.WriteLine("Raspunsul Introdus nu este valid, Incercati din nou, sau apasati pe X sa iesiti.");
+                if (Console.ReadLine().ToLower() == "x")
+                {
+                    goto sfarsit;
+                }
+                else
+                {
+                    goto Repeta;
+                }
+            }
+            Console.ReadKey();
+        sfarsit:;
+        }
     }
 }
